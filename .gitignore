@@ -1,4 +1,4 @@
-# Environment & secrets
+git # Environment & secrets
 .env
 .env.local
 .env.*.local

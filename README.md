@@ -163,8 +163,10 @@ For hosting without Ollama:
 
 ## Deployment
 
-- **Frontend**: Vercel, Netlify, or GitHub Pages
-- **Backend**: Railway, Render, or Fly.io
+See **[DEPLOY.md](DEPLOY.md)** for step-by-step instructions.
+
+- **Railway**: Host both backend + frontend (recommended)
+- **Render + Vercel**: Backend on Render, frontend on Vercel
 
 Set `VITE_API_URL` to your backend URL when building the frontend.
 
