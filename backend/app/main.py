@@ -16,19 +16,17 @@ from pydantic import BaseModel
 
 from .agent import process_message
 from .catalog import load_catalog
-from .retrieval import init_collection
 from .state import get_or_create_session, update_session
 
-# Global catalog (ChromaDB handles embeddings)
+# Global catalog (ChromaDB/embeddings load lazily on first search)
 catalog: list[dict[str, Any]] = []
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Load catalog and initialize ChromaDB at startup."""
+    """Load catalog at startup. ChromaDB/embeddings init lazily on first search."""
     global catalog
     catalog = load_catalog()
-    init_collection(catalog)
     yield
 
 

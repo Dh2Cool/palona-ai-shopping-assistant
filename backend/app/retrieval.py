@@ -1,5 +1,6 @@
 """Retrieval engine for product search. Uses ChromaDB when available, else in-memory embeddings."""
 
+import threading
 from typing import Any
 
 from .catalog import get_searchable_text
@@ -9,6 +10,8 @@ _use_chroma = False
 _chroma_collection = None
 _product_embeddings: list[list[float]] = []
 _catalog_snapshot: list[dict[str, Any]] = []
+_initialized = False
+_init_lock = threading.Lock()
 
 
 def _try_import_chroma():
@@ -38,6 +41,18 @@ def _try_import_chroma():
         return coll
     except Exception:
         return None
+
+
+def _ensure_initialized(catalog: list[dict[str, Any]]) -> None:
+    """Initialize retrieval on first use. Thread-safe."""
+    global _initialized
+    if _initialized:
+        return
+    with _init_lock:
+        if _initialized:
+            return
+        init_collection(catalog)
+        _initialized = True
 
 
 def init_collection(catalog: list[dict[str, Any]]) -> None:
@@ -76,7 +91,8 @@ def search_products(
     catalog: list[dict[str, Any]],
     top_k: int = 5,
 ) -> list[dict[str, Any]]:
-    """Semantic search over products. Uses ChromaDB or in-memory fallback."""
+    """Semantic search over products. Uses ChromaDB or in-memory fallback. Initializes lazily on first call."""
+    _ensure_initialized(catalog)
     if _use_chroma and _chroma_collection is not None:
         return _search_chroma(query, catalog, top_k)
     return _search_memory(query, catalog, top_k)
