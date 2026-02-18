@@ -12,7 +12,6 @@ RELEVANCE_THRESHOLD = 0.35
 
 _EMBEDDINGS_PATH = Path(__file__).parent.parent / "data" / "product_embeddings.json"
 
-# Loaded once at import time — just JSON parsing, instant
 _product_embeddings_cache: dict[str, list[float]] | None = None
 
 
@@ -29,13 +28,8 @@ def _load_precomputed() -> dict[str, list[float]]:
     return _product_embeddings_cache
 
 
-def get_precomputed_embedding(product_id: str) -> list[float] | None:
-    """Return the pre-computed embedding for a product ID, or None if missing."""
-    return _load_precomputed().get(product_id)
-
-
 def compute_embedding(text: str) -> list[float]:
-    """Embed a query string using OpenAI API at runtime."""
+    """Embed a query string via OpenAI API at runtime."""
     from openai import OpenAI
 
     api_key = os.getenv("OPENAI_API_KEY")
@@ -48,7 +42,6 @@ def compute_embedding(text: str) -> list[float]:
 
 
 def cosine_similarity(a: list[float], b: list[float]) -> float:
-    """Cosine similarity between two vectors."""
     va = np.array(a)
     vb = np.array(b)
     return float(np.dot(va, vb) / (np.linalg.norm(va) * np.linalg.norm(vb) + 1e-9))
