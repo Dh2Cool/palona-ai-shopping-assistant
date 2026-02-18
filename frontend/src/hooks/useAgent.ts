@@ -76,7 +76,7 @@ export function useAgent() {
 
         if (res.status === 503) {
           isRetrying = true
-          const data = await res.json().catch(() => ({}))
+          await res.json().catch(() => ({}))
           const retrySec = parseInt(res.headers.get('Retry-After') || '60', 10)
           setWarmingUp(true)
           await new Promise((r) => setTimeout(r, retrySec * 1000))
