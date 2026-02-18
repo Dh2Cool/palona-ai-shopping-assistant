@@ -1,0 +1,404 @@
+{
+  "products": [
+    {
+      "id": "p1",
+      "name": "Sport Performance T-Shirt",
+      "category": "Clothing",
+      "description": "Breathable athletic t-shirt made from moisture-wicking fabric. Perfect for running, gym workouts, and sports. Lightweight and quick-dry.",
+      "price": 29.99,
+      "image_url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"
+    },
+    {
+      "id": "p2",
+      "name": "Running Shorts",
+      "category": "Clothing",
+      "description": "Lightweight running shorts with built-in liner. Reflective details for visibility. Ideal for jogging and marathon training.",
+      "price": 34.99,
+      "image_url": "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400"
+    },
+    {
+      "id": "p3",
+      "name": "Yoga Leggings",
+      "category": "Clothing",
+      "description": "High-waist yoga leggings with four-way stretch. Squat-proof and comfortable for yoga, pilates, and casual wear.",
+      "price": 44.99,
+      "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400"
+    },
+    {
+      "id": "p4",
+      "name": "Wireless Earbuds",
+      "category": "Electronics",
+      "description": "Premium wireless earbuds with active noise cancellation. 24-hour battery life. Perfect for workouts and commuting.",
+      "price": 89.99,
+      "image_url": "https://images.unsplash.com/photo-1598331668826-20cecc596b86?w=400"
+    },
+    {
+      "id": "p5",
+      "name": "Fitness Tracker Watch",
+      "category": "Electronics",
+      "description": "Smart fitness watch with heart rate monitor, GPS, and sleep tracking. Water-resistant for swimming.",
+      "price": 129.99,
+      "image_url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400"
+    },
+    {
+      "id": "p6",
+      "name": "Casual Cotton T-Shirt",
+      "category": "Clothing",
+      "description": "Soft organic cotton t-shirt. Classic fit for everyday wear. Available in multiple colors.",
+      "price": 24.99,
+      "image_url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400"
+    },
+    {
+      "id": "p7",
+      "name": "Hiking Boots",
+      "category": "Footwear",
+      "description": "Waterproof hiking boots with ankle support. Durable rubber sole for trail hiking and outdoor adventures.",
+      "price": 149.99,
+      "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"
+    },
+    {
+      "id": "p8",
+      "name": "Running Shoes",
+      "category": "Footwear",
+      "description": "Lightweight running shoes with cushioned sole. Designed for road running and daily training.",
+      "price": 119.99,
+      "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"
+    },
+    {
+      "id": "p9",
+      "name": "Gym Bag",
+      "category": "Accessories",
+      "description": "Spacious gym bag with separate shoe compartment. Water-resistant material. Perfect for sports gear.",
+      "price": 49.99,
+      "image_url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+    },
+    {
+      "id": "p10",
+      "name": "Water Bottle",
+      "category": "Accessories",
+      "description": "Insulated stainless steel water bottle. Keeps drinks cold for 24 hours. BPA-free and leak-proof.",
+      "price": 29.99,
+      "image_url": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400"
+    },
+    {
+      "id": "p11",
+      "name": "Bluetooth Speaker",
+      "category": "Electronics",
+      "description": "Portable waterproof Bluetooth speaker. 12-hour battery. Great for outdoor workouts and beach.",
+      "price": 59.99,
+      "image_url": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400"
+    },
+    {
+      "id": "p12",
+      "name": "Resistance Bands Set",
+      "category": "Sports",
+      "description": "Set of 5 resistance bands with different tension levels. Includes carrying bag and door anchor for home workouts.",
+      "price": 24.99,
+      "image_url": "https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=400"
+    },
+    {
+      "id": "p13",
+      "name": "Yoga Mat",
+      "category": "Sports",
+      "description": "Non-slip yoga mat with alignment lines. Extra thick for joint comfort. Includes carrying strap.",
+      "price": 34.99,
+      "image_url": "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400"
+    },
+    {
+      "id": "p14",
+      "name": "Dumbbells Set",
+      "category": "Sports",
+      "description": "Adjustable dumbbells 5-25 lbs. Space-saving design. Ideal for home gym strength training.",
+      "price": 199.99,
+      "image_url": "https://images.unsplash.com/photo-1534368959876-26bf04f2c947?w=400"
+    },
+    {
+      "id": "p15",
+      "name": "Sports Bra",
+      "category": "Clothing",
+      "description": "High-support sports bra for running and high-impact activities. Moisture-wicking and breathable.",
+      "price": 39.99,
+      "image_url": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400"
+    },
+    {
+      "id": "p16",
+      "name": "Cycling Jersey",
+      "category": "Clothing",
+      "description": "Aerodynamic cycling jersey with rear pockets. Breathable fabric for long rides.",
+      "price": 54.99,
+      "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400"
+    },
+    {
+      "id": "p17",
+      "name": "Swim Goggles",
+      "category": "Sports",
+      "description": "Anti-fog swim goggles with UV protection. Adjustable strap. Suitable for pool and open water.",
+      "price": 24.99,
+      "image_url": "https://images.unsplash.com/photo-1519317166981-836985f8e0f9?w=400"
+    },
+    {
+      "id": "p18",
+      "name": "Tennis Racket",
+      "category": "Sports",
+      "description": "Lightweight tennis racket for intermediate players. Large sweet spot. Includes cover.",
+      "price": 89.99,
+      "image_url": "https://images.unsplash.com/photo-1617083274663-1c3f1e2d2e6e?w=400"
+    },
+    {
+      "id": "p19",
+      "name": "Basketball",
+      "category": "Sports",
+      "description": "Indoor/outdoor basketball. Durable rubber construction. Official size for regulation play.",
+      "price": 29.99,
+      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400"
+    },
+    {
+      "id": "p20",
+      "name": "Soccer Ball",
+      "category": "Sports",
+      "description": "FIFA-approved soccer ball. Machine-stitched for durability. Suitable for training and matches.",
+      "price": 44.99,
+      "image_url": "https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aab?w=400"
+    },
+    {
+      "id": "p21",
+      "name": "Hoodie",
+      "category": "Clothing",
+      "description": "Cozy fleece hoodie. Perfect for cool-down after workouts or casual wear. Kangaroo pocket.",
+      "price": 49.99,
+      "image_url": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400"
+    },
+    {
+      "id": "p22",
+      "name": "Compression Socks",
+      "category": "Clothing",
+      "description": "Graduated compression socks for recovery. Reduces muscle fatigue. Ideal for runners.",
+      "price": 19.99,
+      "image_url": "https://images.unsplash.com/photo-1586351010605-dde7df831b66?w=400"
+    },
+    {
+      "id": "p23",
+      "name": "Laptop Stand",
+      "category": "Electronics",
+      "description": "Adjustable aluminum laptop stand. Ergonomic design for better posture. Fits most laptops.",
+      "price": 45.99,
+      "image_url": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400"
+    },
+    {
+      "id": "p24",
+      "name": "Mechanical Keyboard",
+      "category": "Electronics",
+      "description": "RGB mechanical keyboard with Cherry MX switches. Programmable keys. Wired USB-C.",
+      "price": 129.99,
+      "image_url": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400"
+    },
+    {
+      "id": "p25",
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "description": "Ergonomic wireless mouse. Long battery life. Silent clicks for office use.",
+      "price": 39.99,
+      "image_url": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400"
+    },
+    {
+      "id": "p26",
+      "name": "Desk Lamp",
+      "category": "Electronics",
+      "description": "LED desk lamp with adjustable brightness. USB charging port. Minimalist design.",
+      "price": 34.99,
+      "image_url": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400"
+    },
+    {
+      "id": "p27",
+      "name": "Backpack",
+      "category": "Accessories",
+      "description": "Laptop backpack with padded compartment. Water-resistant. Multiple pockets for organization.",
+      "price": 59.99,
+      "image_url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+    },
+    {
+      "id": "p28",
+      "name": "Sunglasses",
+      "category": "Accessories",
+      "description": "Polarized sports sunglasses. UV400 protection. Lightweight and durable frame.",
+      "price": 44.99,
+      "image_url": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400"
+    },
+    {
+      "id": "p29",
+      "name": "Baseball Cap",
+      "category": "Accessories",
+      "description": "Adjustable baseball cap. Moisture-wicking fabric. One-size-fits-all.",
+      "price": 24.99,
+      "image_url": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400"
+    },
+    {
+      "id": "p30",
+      "name": "Sneakers",
+      "category": "Footwear",
+      "description": "Classic white sneakers. Comfortable for all-day wear. Versatile casual style.",
+      "price": 79.99,
+      "image_url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400"
+    },
+    {
+      "id": "p31",
+      "name": "Sandals",
+      "category": "Footwear",
+      "description": "Comfortable sport sandals. Quick-dry webbing. Perfect for beach and pool.",
+      "price": 39.99,
+      "image_url": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400"
+    },
+    {
+      "id": "p32",
+      "name": "Winter Jacket",
+      "category": "Clothing",
+      "description": "Insulated winter jacket. Water-resistant shell. Hood with faux fur trim.",
+      "price": 149.99,
+      "image_url": "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=400"
+    },
+    {
+      "id": "p33",
+      "name": "Rain Jacket",
+      "category": "Clothing",
+      "description": "Lightweight packable rain jacket. Fully waterproof. Packs into its own pocket.",
+      "price": 69.99,
+      "image_url": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400"
+    },
+    {
+      "id": "p34",
+      "name": "Denim Jeans",
+      "category": "Clothing",
+      "description": "Classic fit denim jeans. Stretch fabric for comfort. Versatile everyday wear.",
+      "price": 59.99,
+      "image_url": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"
+    },
+    {
+      "id": "p35",
+      "name": "Chinos",
+      "category": "Clothing",
+      "description": "Smart casual chinos. Cotton blend. Perfect for office or weekend.",
+      "price": 54.99,
+      "image_url": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400"
+    },
+    {
+      "id": "p36",
+      "name": "Polo Shirt",
+      "category": "Clothing",
+      "description": "Classic polo shirt. Pima cotton. Smart casual style for golf or office.",
+      "price": 44.99,
+      "image_url": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400"
+    },
+    {
+      "id": "p37",
+      "name": "Dress Shirt",
+      "category": "Clothing",
+      "description": "Slim fit dress shirt. Wrinkle-resistant fabric. Suitable for formal occasions.",
+      "price": 49.99,
+      "image_url": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400"
+    },
+    {
+      "id": "p38",
+      "name": "Smartwatch",
+      "category": "Electronics",
+      "description": "Smartwatch with notifications, fitness tracking, and customizable watch faces. 5-day battery.",
+      "price": 199.99,
+      "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"
+    },
+    {
+      "id": "p39",
+      "name": "Tablet Stand",
+      "category": "Electronics",
+      "description": "Adjustable tablet stand for reading and video calls. Folds flat for travel.",
+      "price": 24.99,
+      "image_url": "https://images.unsplash.com/photo-1585792163219-19b6a1e8e1b0?w=400"
+    },
+    {
+      "id": "p40",
+      "name": "Phone Holder",
+      "category": "Electronics",
+      "description": "Car dashboard phone holder. Strong grip. 360-degree rotation.",
+      "price": 19.99,
+      "image_url": "https://images.unsplash.com/photo-1601784551446-20c9e07cdb31?w=400"
+    },
+    {
+      "id": "p41",
+      "name": "Protein Shaker",
+      "category": "Accessories",
+      "description": "BPA-free protein shaker with mixing ball. 700ml capacity. Dishwasher safe.",
+      "price": 14.99,
+      "image_url": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=400"
+    },
+    {
+      "id": "p42",
+      "name": "Jump Rope",
+      "category": "Sports",
+      "description": "Adjustable speed jump rope. Ball bearing handles. Great for cardio workouts.",
+      "price": 19.99,
+      "image_url": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400"
+    },
+    {
+      "id": "p43",
+      "name": "Foam Roller",
+      "category": "Sports",
+      "description": "High-density foam roller for muscle recovery. Textured surface for deep tissue massage.",
+      "price": 29.99,
+      "image_url": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400"
+    },
+    {
+      "id": "p44",
+      "name": "Kettlebell",
+      "category": "Sports",
+      "description": "Cast iron kettlebell. Multiple weight options. Ideal for strength and conditioning.",
+      "price": 44.99,
+      "image_url": "https://images.unsplash.com/photo-1534368959876-26bf04f2c947?w=400"
+    },
+    {
+      "id": "p45",
+      "name": "Punching Bag",
+      "category": "Sports",
+      "description": "Heavy bag for boxing and MMA training. Filled with synthetic fiber. Includes chains.",
+      "price": 89.99,
+      "image_url": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400"
+    },
+    {
+      "id": "p46",
+      "name": "Golf Gloves",
+      "category": "Sports",
+      "description": "Premium leather golf gloves. Breathable. Available in multiple sizes.",
+      "price": 24.99,
+      "image_url": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400"
+    },
+    {
+      "id": "p47",
+      "name": "Skateboard",
+      "category": "Sports",
+      "description": "Complete skateboard with maple deck. ABEC-7 bearings. Ready to ride.",
+      "price": 99.99,
+      "image_url": "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=400"
+    },
+    {
+      "id": "p48",
+      "name": "Camping Tent",
+      "category": "Outdoor",
+      "description": "2-person camping tent. Waterproof. Easy setup. Includes carry bag.",
+      "price": 129.99,
+      "image_url": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400"
+    },
+    {
+      "id": "p49",
+      "name": "Sleeping Bag",
+      "category": "Outdoor",
+      "description": "Mummy-style sleeping bag. Rated for 20°F. Lightweight and packable.",
+      "price": 79.99,
+      "image_url": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400"
+    },
+    {
+      "id": "p50",
+      "name": "Headlamp",
+      "category": "Outdoor",
+      "description": "LED headlamp with multiple brightness levels. Rechargeable. Water-resistant.",
+      "price": 34.99,
+      "image_url": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400"
+    }
+  ]
+}
