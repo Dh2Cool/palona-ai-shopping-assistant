@@ -12,6 +12,34 @@ _product_embeddings: list[list[float]] = []
 _catalog_snapshot: list[dict[str, Any]] = []
 _initialized = False
 _init_lock = threading.Lock()
+_init_thread: threading.Thread | None = None
+
+
+def is_ready() -> bool:
+    """Return True if retrieval is initialized and ready for search."""
+    return _initialized
+
+
+def init_in_background(catalog: list[dict[str, Any]]) -> None:
+    """Start initialization in a background thread. Returns immediately."""
+    global _init_thread
+    if _initialized:
+        return
+    with _init_lock:
+        if _initialized or _init_thread is not None:
+            return
+
+        def _run():
+            global _initialized
+            with _init_lock:
+                if _initialized:
+                    return
+            init_collection(catalog)
+            with _init_lock:
+                _initialized = True
+
+        _init_thread = threading.Thread(target=_run, daemon=True)
+        _init_thread.start()
 
 
 def _try_import_chroma():

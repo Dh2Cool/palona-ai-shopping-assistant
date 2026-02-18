@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
@@ -31,11 +31,14 @@ export interface ChatResponse {
 export function useAgent() {
   const [messages, setMessages] = useState<Message[]>([])
   const [loading, setLoading] = useState(false)
+  const [warmingUp, setWarmingUp] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [sessionId, setSessionId] = useState<string | null>(null)
+  const sessionIdRef = useRef(sessionId)
+  sessionIdRef.current = sessionId
 
   const sendMessage = useCallback(
-    async (content: string, imageBase64?: string | null) => {
+    async (content: string, imageBase64?: string | null, isRetry = false) => {
       const messagesSnapshot = messages
       if (!content.trim() && !imageBase64) return
 
@@ -43,10 +46,14 @@ export function useAgent() {
         role: 'user',
         content: content.trim() || (imageBase64 ? 'Find products matching this image' : ''),
       }
-      setMessages((prev) => [...prev, userMessage])
+      if (!isRetry) {
+        setMessages((prev) => [...prev, userMessage])
+      }
       setLoading(true)
       setError(null)
+      setWarmingUp(false)
 
+      let isRetrying = false
       try {
         const historyForApi = messagesSnapshot.map((m) => ({
           role: m.role,
@@ -61,11 +68,21 @@ export function useAgent() {
           body: JSON.stringify({
             message: content.trim() || 'Find products matching this image',
             image_base64: imageBase64 || null,
-            session_id: sessionId,
+            session_id: sessionIdRef.current,
             history: historyForApi,
             previous_products: lastAssistantWithProducts?.products ?? [],
           }),
         })
+
+        if (res.status === 503) {
+          isRetrying = true
+          const data = await res.json().catch(() => ({}))
+          const retrySec = parseInt(res.headers.get('Retry-After') || '60', 10)
+          setWarmingUp(true)
+          await new Promise((r) => setTimeout(r, retrySec * 1000))
+          setWarmingUp(false)
+          return sendMessage(content, imageBase64, true)
+        }
 
         if (!res.ok) {
           const err = await res.json().catch(() => ({}))
@@ -89,10 +106,10 @@ export function useAgent() {
           { role: 'assistant', content: `Error: ${errMsg}` },
         ])
       } finally {
-        setLoading(false)
+        if (!isRetrying) setLoading(false)
       }
     },
-    [messages, sessionId]
+    [messages]
   )
 
   const startNewChat = useCallback(() => {
@@ -101,5 +118,5 @@ export function useAgent() {
     setError(null)
   }, [])
 
-  return { messages, loading, error, sendMessage, startNewChat }
+  return { messages, loading, warmingUp, error, sendMessage, startNewChat }
 }

@@ -4,7 +4,7 @@ import { Message } from './Message'
 import { ImageUpload } from './ImageUpload'
 
 export function Chat() {
-  const { messages, loading, error, sendMessage, startNewChat } = useAgent()
+  const { messages, loading, warmingUp, error, sendMessage, startNewChat } = useAgent()
   const [input, setInput] = useState('')
   const [attachedImage, setAttachedImage] = useState<string | null>(null)
   const [uploadKey, setUploadKey] = useState(0)
@@ -59,7 +59,9 @@ export function Chat() {
           <div className="message assistant">
             <div className="message-avatar">Palona</div>
             <div className="message-content">
-              <div className="typing">Thinking...</div>
+              <div className="typing">
+                {warmingUp ? 'Warming up... (first load takes 1–2 min). Retrying in 60s...' : 'Thinking...'}
+              </div>
             </div>
           </div>
         )}

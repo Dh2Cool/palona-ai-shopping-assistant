@@ -14,19 +14,23 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from fastapi.responses import JSONResponse
+
 from .agent import process_message
 from .catalog import load_catalog
+from .retrieval import init_in_background, is_ready
 from .state import get_or_create_session, update_session
 
-# Global catalog (ChromaDB/embeddings load lazily on first search)
+# Global catalog (ChromaDB/embeddings warm up in background)
 catalog: list[dict[str, Any]] = []
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Load catalog at startup. ChromaDB/embeddings init lazily on first search."""
+    """Load catalog and start retrieval warm-up in background. App binds to port immediately."""
     global catalog
     catalog = load_catalog()
+    init_in_background(catalog)
     yield
 
 
@@ -72,8 +76,13 @@ class ChatResponse(BaseModel):
 
 @app.get("/api/health")
 async def health():
-    """Health check endpoint."""
-    return {"status": "ok", "catalog_size": len(catalog)}
+    """Health check endpoint. ready=true when retrieval is warmed up."""
+    ready = is_ready()
+    return {
+        "status": "ok" if ready else "warming_up",
+        "ready": ready,
+        "catalog_size": len(catalog),
+    }
 
 
 @app.get("/api/products")
@@ -85,6 +94,15 @@ async def list_products():
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     """Main agent endpoint: text + optional image."""
+    if not is_ready():
+        return JSONResponse(
+            status_code=503,
+            content={
+                "detail": "Service warming up. First load takes 1–2 minutes. Please retry in 60 seconds.",
+                "ready": False,
+            },
+            headers={"Retry-After": "60"},
+        )
     try:
         # Use server-side state when session_id provided
         session_id, state = get_or_create_session(request.session_id)
