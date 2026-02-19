@@ -159,8 +159,7 @@ async def _groq_vision(image_base64: str) -> str:
             },
         )
         if r.status_code != 200:
-            # Vision may not be available; return generic fallback
-            return "casual clothing or accessories"
+            raise RuntimeError(f"Groq vision API error {r.status_code}: {r.text}")
         data = r.json()
         return data["choices"][0]["message"]["content"].strip()
 

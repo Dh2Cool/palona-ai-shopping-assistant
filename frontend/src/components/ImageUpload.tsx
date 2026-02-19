@@ -24,6 +24,8 @@ function compressImage(file: File): Promise<string> {
       canvas.height = height
       const ctx = canvas.getContext('2d')
       if (!ctx) return reject(new Error('Canvas error'))
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
       ctx.drawImage(img, 0, 0, width, height)
       let quality = 0.9
       const tryEncode = () => {
